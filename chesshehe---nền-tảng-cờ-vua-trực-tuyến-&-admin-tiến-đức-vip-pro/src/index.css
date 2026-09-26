@@ -1,0 +1,747 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   HIỆU ỨNG WEBSITE ĐẲNG CẤP VIP (Theo cảm hứng wiweb.vn/hieu-ung-website)
+   - Viền sáng chuyển động Neon & Gold VIP (Border Beam / Glow)
+   - Chữ vàng phản quang lấp lánh (Gold Shimmer Text)
+   - Vệt sáng quét ngang bóng bẩy (Light Sheen / Sweep)
+   - Hào quang nhịp thở hoàng gia (Pulse Aura Rings)
+   - Thủy tinh phản quang đa tầng (VIP Glassmorphism)
+   ========================================================================== */
+
+@keyframes chessFloat {
+  0% {
+    transform: translateY(0px) rotate(0deg) scale(0.95);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-32px) rotate(8deg) scale(1.08);
+    opacity: 0.65;
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg) scale(0.95);
+    opacity: 0.3;
+  }
+}
+
+@keyframes auroraShift {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.75;
+  }
+  33% {
+    transform: translate(45px, -50px) scale(1.22);
+    opacity: 0.95;
+  }
+  66% {
+    transform: translate(-35px, 35px) scale(0.9);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.75;
+  }
+}
+
+@keyframes gridGlow {
+  0%, 100% {
+    opacity: 0.08;
+    transform: perspective(600px) rotateX(20deg) scale(1);
+  }
+  50% {
+    opacity: 0.16;
+    transform: perspective(600px) rotateX(22deg) scale(1.02);
+  }
+}
+
+/* Hiệu ứng tia sáng quét chữ Hoàng Gia (Gold Text Shimmer) */
+@keyframes goldTextShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Hiệu ứng viền phát sáng chạy vòng tròn (Border Beam Animation) */
+@keyframes borderRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hiệu ứng vòng hào quang lan tỏa (Pulse Radar Aura) */
+@keyframes pulseAura {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.6);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 14px rgba(245, 158, 11, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+  }
+}
+
+/* Hiệu ứng sao nhấp nháy phát sáng */
+@keyframes sparkleTwinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Class hiệu ứng động */
+.animate-chess-float-1 {
+  animation: chessFloat 9s ease-in-out infinite;
+}
+
+.animate-chess-float-2 {
+  animation: chessFloat 13s ease-in-out 1.5s infinite;
+}
+
+.animate-chess-float-3 {
+  animation: chessFloat 11s ease-in-out 3s infinite;
+}
+
+.animate-chess-float-4 {
+  animation: chessFloat 15s ease-in-out 4.5s infinite;
+}
+
+.animate-aurora-1 {
+  animation: auroraShift 16s ease-in-out infinite alternate;
+}
+
+.animate-aurora-2 {
+  animation: auroraShift 20s ease-in-out 3s infinite alternate;
+}
+
+.animate-grid-glow {
+  animation: gridGlow 8s ease-in-out infinite;
+}
+
+.animate-sparkle {
+  animation: sparkleTwinkle 2.5s ease-in-out infinite;
+}
+
+/* Dòng chữ chuyển màu hoàng gia lấp lánh (Shimmer Text) */
+.vip-text-shimmer {
+  background: linear-gradient(
+    90deg,
+    #fbbf24 0%,
+    #fef08a 25%,
+    #ffffff 50%,
+    #fef08a 75%,
+    #f59e0b 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: goldTextShimmer 4s linear infinite;
+}
+
+/* Thẻ kính VIP hoàng gia phản quang */
+.vip-glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(34, 30, 24, 0.85) 0%,
+    rgba(22, 21, 18, 0.95) 100%
+  );
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.7),
+              0 0 25px -5px rgba(245, 158, 11, 0.15),
+              inset 0 1px 1px 0 rgba(254, 243, 199, 0.15);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vip-glass-card:hover {
+  border-color: rgba(245, 158, 11, 0.6);
+  box-shadow: 0 15px 45px -5px rgba(0, 0, 0, 0.8),
+              0 0 35px 2px rgba(245, 158, 11, 0.3),
+              inset 0 1px 2px 0 rgba(254, 243, 199, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Viền phát quang hào quang nhịp thở */
+.vip-pulse-ring {
+  animation: pulseAura 2.2s infinite;
+}
+
+/* ==========================================================================
+   TOÀN BỘ NÚT BẤM (BUTTONS) ĐỀU ĐƯỢC LỒNG GHÉP HIỆU ỨNG VIP
+   - Vệt sáng quét ngang bóng bẩy (Light Sheen Sweep) cho TẤT CẢ các nút
+   - Nâng khối 3D & nén khi click (Hover Lift & Active Tactile Press)
+   - Viền phản quang hổ phách hoàng gia (Amber Gold Glow Border)
+   - Micro-interaction phóng đại icon khi rê chuột
+   - Hiệu ứng gợn sóng lan tỏa khi click (VIP Click Ripple)
+   ========================================================================== */
+
+button:not(:disabled) {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  user-select: none;
+}
+
+button:not(:disabled):hover {
+  transform: translateY(-2px);
+}
+
+button:not(:disabled):active {
+  transform: scale(0.97) translateY(0);
+}
+
+/* Hiệu ứng vệt sáng phản quang quét ngang qua tất cả các nút khi rê chuột */
+button:not(:disabled):not(.uiverse-send-btn):not(.button)::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 100%
+  );
+  transform: rotate(35deg);
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 10;
+}
+
+button:not(:disabled):not(.uiverse-send-btn):not(.button):hover::after {
+  transform: translate(500%, 0) rotate(35deg);
+}
+
+/* Hiệu ứng chuyển động nảy nhẹ của icon bên trong nút */
+button:not(:disabled):hover svg {
+  transform: translateY(-1px) scale(1.1);
+  transition: transform 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Nút vàng / hoàng gia (Amber & Gold VIP) */
+button[class*="bg-amber"]:not(:disabled):hover,
+button[class*="from-amber"]:not(:disabled):hover,
+button[class*="bg-yellow"]:not(:disabled):hover {
+  box-shadow: 0 8px 25px -4px rgba(245, 158, 11, 0.55),
+              0 0 16px 2px rgba(254, 240, 138, 0.4),
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.45) !important;
+  border-color: rgba(254, 240, 138, 0.8) !important;
+}
+
+/* Nút đá tối (Stone buttons) khi hover phát sáng viền hổ phách sang trọng */
+button[class*="bg-stone"]:not(:disabled):hover {
+  border-color: rgba(245, 158, 11, 0.6) !important;
+  box-shadow: 0 6px 20px -2px rgba(0, 0, 0, 0.65),
+              0 0 16px 1px rgba(245, 158, 11, 0.25),
+              inset 0 1px 1px 0 rgba(254, 243, 199, 0.12) !important;
+}
+
+/* Nút đỏ / nguy hiểm (Resign, Logout) */
+button[class*="bg-rose"]:not(:disabled):hover,
+button[class*="bg-red"]:not(:disabled):hover {
+  box-shadow: 0 8px 25px -4px rgba(239, 68, 68, 0.55),
+              0 0 16px 1px rgba(248, 113, 113, 0.4) !important;
+  border-color: rgba(251, 113, 133, 0.8) !important;
+}
+
+/* Nút xanh lá / Thành công */
+button[class*="bg-emerald"]:not(:disabled):hover,
+button[class*="bg-green"]:not(:disabled):hover {
+  box-shadow: 0 8px 25px -4px rgba(16, 185, 129, 0.55),
+              0 0 16px 1px rgba(52, 211, 153, 0.4) !important;
+  border-color: rgba(110, 231, 183, 0.8) !important;
+}
+
+/* Nút tím / Huyền ảo */
+button[class*="bg-purple"]:not(:disabled):hover,
+button[class*="bg-indigo"]:not(:disabled):hover {
+  box-shadow: 0 8px 25px -4px rgba(168, 85, 247, 0.55),
+              0 0 16px 1px rgba(192, 132, 252, 0.4) !important;
+  border-color: rgba(216, 180, 254, 0.8) !important;
+}
+
+/* Hiệu ứng viền xoay laser VIP đặc biệt (VIP Conic Border Beam) */
+.vip-beam-btn {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border: 1px solid rgba(245, 158, 11, 0.45) !important;
+}
+
+.vip-beam-btn::before {
+  content: '';
+  position: absolute;
+  inset: -150%;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    transparent 0deg 220deg,
+    rgba(245, 158, 11, 0.7) 290deg,
+    rgba(254, 240, 138, 1) 360deg
+  );
+  animation: turnOutline 2.5s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.vip-beam-btn:hover::before {
+  opacity: 1;
+}
+
+/* Hiệu ứng sóng lan tỏa VIP khi nhấp chuột vào nút */
+.vip-click-ripple {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle, rgba(254, 240, 138, 0.7) 0%, rgba(245, 158, 11, 0.4) 50%, transparent 100%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: vipRippleAnim 0.55s ease-out forwards;
+  pointer-events: none;
+  z-index: 20;
+}
+
+@keyframes vipRippleAnim {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(14);
+    opacity: 0;
+  }
+}
+
+/* Nút bấm vệt sáng quét qua siêu mượt (Light Sweep) */
+.vip-sheen-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.28s ease;
+}
+
+.vip-sheen-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: rotate(35deg);
+  transition: transform 0.65s ease;
+  pointer-events: none;
+}
+
+.vip-sheen-btn:hover::after {
+  transform: translate(450%, 0) rotate(35deg);
+}
+
+/* Viền ánh sáng chuyển động ma thuật (Border Beam) */
+.vip-border-beam-box {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  padding: 1px;
+}
+
+.vip-border-beam-box::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg 300deg,
+    #f59e0b 330deg,
+    #fef08a 360deg
+  );
+  animation: borderRotate 4s linear infinite;
+}
+
+.vip-border-beam-box > .vip-inner-content {
+  position: relative;
+  z-index: 1;
+  background-color: #1c1917;
+  border-radius: inherit;
+}
+
+/* Super Cool Hover & Glow Interactive Utilities */
+.hover-cool-card {
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-cool-card:hover {
+  transform: translateY(-3px) scale(1.012);
+  box-shadow: 0 12px 30px -10px rgba(245, 158, 11, 0.35), 0 0 1px 1px rgba(245, 158, 11, 0.5);
+  border-color: rgba(245, 158, 11, 0.7) !important;
+}
+
+.hover-glow-amber {
+  transition: all 0.25s ease-out;
+}
+.hover-glow-amber:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.45);
+  border-color: rgba(251, 191, 36, 0.8) !important;
+}
+
+.hover-glow-cyan {
+  transition: all 0.25s ease-out;
+}
+.hover-glow-cyan:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.45);
+  border-color: rgba(34, 211, 238, 0.8) !important;
+}
+
+.hover-glow-emerald {
+  transition: all 0.25s ease-out;
+}
+.hover-glow-emerald:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.45);
+  border-color: rgba(52, 211, 153, 0.8) !important;
+}
+
+.hover-glow-purple {
+  transition: all 0.25s ease-out;
+}
+.hover-glow-purple:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.45);
+  border-color: rgba(192, 132, 252, 0.8) !important;
+}
+
+/* Cool Hover Sheen Animation */
+.hover-sheen {
+  position: relative;
+  overflow: hidden;
+}
+.hover-sheen::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 25%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  transition: transform 0.65s ease;
+  pointer-events: none;
+}
+.hover-sheen:hover::after {
+  transform: translate(650%, 0) rotate(30deg);
+}
+
+/* ==========================================================================
+   HIỆU ỨNG NÚT BẤM "SEND MESSAGE" ĐỘNG (UIVERSE / WIWEB)
+   - Khung viền outline quét xoay conic gradient
+   - Chữ gợn sóng nhịp nhàng (letter staggered wave)
+   - Phi cơ cất cánh & biến đổi thành tickmark tròn "Sent"
+   - Đổ bóng 3D, hiệu ứng kính phản quang mạ vàng hoàng gia
+   ========================================================================== */
+
+button.button,
+.uiverse-send-btn {
+  --primary: #f59e0b;
+  --neutral-1: #1f1d19;
+  --neutral-2: #2d2924;
+  --radius: 14px;
+  cursor: pointer;
+  border-radius: var(--radius);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  border: none;
+  box-shadow: 0 0.5px 0.5px 1px rgba(245, 158, 11, 0.3),
+    0 10px 24px rgba(0, 0, 0, 0.45),
+    0 4px 6px 0px rgba(0, 0, 0, 0.15);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  min-width: 175px;
+  padding: 12px 24px;
+  height: 52px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fbbf24;
+  background: #1c1917;
+  user-select: none;
+  overflow: hidden;
+}
+
+button.button:hover,
+.uiverse-send-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 1px 2px rgba(245, 158, 11, 0.5),
+    0 16px 36px rgba(0, 0, 0, 0.5),
+    0 10px 4px -2px rgba(245, 158, 11, 0.2);
+}
+
+button.button:active,
+.uiverse-send-btn:active {
+  transform: scale(0.98);
+}
+
+button.button::after,
+.uiverse-send-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  border: 1.5px solid transparent;
+  background: linear-gradient(var(--neutral-1), var(--neutral-2)) padding-box,
+    linear-gradient(to bottom, rgba(245, 158, 11, 0.35), rgba(254, 240, 138, 0.15)) border-box;
+  z-index: 0;
+  transition: all 0.3s ease;
+}
+
+button.button:hover::after,
+.uiverse-send-btn:hover::after {
+  box-shadow: inset 0 -1px 3px 0 rgba(245, 158, 11, 0.4);
+}
+
+/* Outline with rotating conic-gradient */
+button.button .outline,
+.uiverse-send-btn .outline {
+  position: absolute;
+  border-radius: inherit;
+  overflow: hidden;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  inset: -2px -2px;
+  pointer-events: none;
+}
+
+button.button .outline::before,
+.uiverse-send-btn .outline::before {
+  content: "";
+  position: absolute;
+  inset: -100%;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    transparent 0deg 200deg,
+    #f59e0b 290deg,
+    #fef08a 360deg
+  );
+  animation: turnOutline 2s linear infinite;
+  animation-play-state: paused;
+}
+
+button.button:hover .outline,
+.uiverse-send-btn:hover .outline {
+  opacity: 1;
+}
+
+button.button:hover .outline::before,
+.uiverse-send-btn:hover .outline::before {
+  animation-play-state: running;
+}
+
+@keyframes turnOutline {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/* State container */
+button.button .state,
+.uiverse-send-btn .state {
+  padding-left: 28px;
+  z-index: 2;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+button.button .state p,
+.uiverse-send-btn .state p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  gap: 0.5px;
+}
+
+button.button .state .icon,
+.uiverse-send-btn .state .icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transform: scale(1.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+}
+
+button.button .state .icon svg,
+.uiverse-send-btn .state .icon svg {
+  overflow: visible;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+/* Staggered letter wave animation */
+button.button .state p span,
+.uiverse-send-btn .state p span {
+  display: inline-block;
+  opacity: 1;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+button.button:hover .state p span,
+.uiverse-send-btn:hover .state p span {
+  animation: letterWave 0.55s ease both calc(var(--i) * 0.045s);
+}
+
+@keyframes letterWave {
+  30% {
+    transform: translateY(3px) scale(0.95, 1.15);
+  }
+  60% {
+    transform: translateY(-5px) scale(1.05, 1.2);
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(254, 240, 138, 0.8);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Default & Sent States */
+button.button .state--default,
+.uiverse-send-btn .state--default {
+  display: flex;
+  color: #fbbf24;
+}
+
+button.button .state--sent,
+.uiverse-send-btn .state--sent {
+  display: none;
+  color: #34d399;
+}
+
+/* When in focus / active / is-sent */
+button.button:focus .state--default,
+button.button.is-sent .state--default,
+.uiverse-send-btn.is-sent .state--default {
+  display: none;
+}
+
+button.button:focus .state--sent,
+button.button.is-sent .state--sent,
+.uiverse-send-btn.is-sent .state--sent {
+  display: flex;
+  animation: slideInSent 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+button.button:focus .state--sent .icon svg,
+button.button.is-sent .state--sent .icon svg,
+.uiverse-send-btn.is-sent .state--sent .icon svg {
+  animation: sentIconAppear 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes sentIconAppear {
+  0% {
+    opacity: 0;
+    transform: scale(3.5) rotate(-35deg);
+    filter: blur(4px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.35) rotate(10deg);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes slideInSent {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Compact version for chat bars */
+.uiverse-send-btn.btn-sm,
+button.button.btn-sm {
+  min-width: 90px;
+  height: 38px;
+  padding: 6px 14px;
+  font-size: 12px;
+  border-radius: 10px;
+}
+.uiverse-send-btn.btn-sm .state,
+button.button.btn-sm .state {
+  padding-left: 20px;
+}
+.uiverse-send-btn.btn-sm .state .icon,
+button.button.btn-sm .state .icon {
+  transform: scale(0.95);
+}
+
+/* Additional VIP Website Effects (wiweb.vn inspired) */
+.wiweb-neon-box {
+  position: relative;
+  background: rgba(28, 25, 23, 0.9);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.15),
+              inset 0 0 15px rgba(245, 158, 11, 0.05);
+  transition: all 0.3s ease;
+}
+
+.wiweb-neon-box:hover {
+  border-color: rgba(245, 158, 11, 0.7);
+  box-shadow: 0 0 35px rgba(245, 158, 11, 0.35),
+              inset 0 0 25px rgba(245, 158, 11, 0.1);
+  transform: translateY(-3px);
+}
+
+.wiweb-glow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.2), rgba(234, 179, 8, 0.1));
+  border: 1px solid rgba(245, 158, 11, 0.5);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.3);
+  animation: pulseAura 3s infinite ease-in-out;
+}

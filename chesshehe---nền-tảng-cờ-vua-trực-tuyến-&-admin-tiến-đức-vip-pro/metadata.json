@@ -1,0 +1,7 @@
+{
+  "name": "OpenChess - Nền tảng Cờ vua Trực tuyến & Admin Tiến Đức VIP Pro",
+  "description": "Nền tảng cờ vua trực tuyến OpenChess cao cấp: Đăng nhập cá nhân hóa, Phân tích ván cờ & độ chính xác, Sách khai cuộc ECO, Bảng xếp hạng cao thủ vinh danh Admin Tiến Đức VIP Pro (GM 2950), 5 bộ chủ đề bàn cờ FIDE, đấu AI và nền chờ chuyển động.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
